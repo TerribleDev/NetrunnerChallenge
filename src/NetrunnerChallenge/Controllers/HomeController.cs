@@ -88,7 +88,7 @@ namespace NetrunnerChallenge.Controllers
                     Cards = new List<ChallengeCard>()
                 };
                 var cards = new NetrunnerApi().GetCards()
-                    .Where(a => string.Equals(a.Side, factionMatch.Side, StringComparison.CurrentCultureIgnoreCase) && a.Agendapoints == null && !string.IsNullOrWhiteSpace(a.Imagesrc))
+                    .Where(a => string.Equals(a.Side, factionMatch.Side, StringComparison.CurrentCultureIgnoreCase) && (a.Agendapoints == null || string.Equals(a.Faction, factionMatch.FactionName, StringComparison.InvariantCultureIgnoreCase) ) && !string.IsNullOrWhiteSpace(a.Imagesrc) && !string.Equals(a.Type, "Identity", StringComparison.CurrentCultureIgnoreCase))
                     .ToList();
                 var length = cards.Count - 1;
                 var randgen = new Random();
