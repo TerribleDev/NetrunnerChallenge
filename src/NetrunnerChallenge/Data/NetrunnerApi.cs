@@ -6,6 +6,9 @@ using NetrunnerDb.Net.Responses;
 
 namespace NetrunnerChallenge.Data
 {
+    /// <summary>
+    /// Wraps the netrunner API in a cache so we don't keep requesting data when we don't need to
+    /// </summary>
     public class NetrunnerApi
     {
         public IList<Cards> GetCards()

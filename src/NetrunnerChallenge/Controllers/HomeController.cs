@@ -15,6 +15,7 @@ namespace NetrunnerChallenge.Controllers
 {
     public class HomeController : Controller
     {
+        [OutputCache(Duration = int.MaxValue)]
         public ActionResult Index()
         {
             using (var db = new DatabaseContext())
@@ -30,6 +31,7 @@ namespace NetrunnerChallenge.Controllers
                 
         }
       
+        [OutputCache(Duration = int.MaxValue, VaryByParam = "id")]
         /// <exception cref="NotImplementedException">Always.</exception>
         public ActionResult Challenge(string id)
         {
@@ -82,7 +84,8 @@ namespace NetrunnerChallenge.Controllers
                 }
                 var generator = new Generator();
                 string rnmId = null;
-                while (rnmId == null || db.ChallengeDb.ToList().Any(a => string.Equals(a.Id, rnmId)))
+                var currentChallenges = db.ChallengeDb.ToList();
+                while (rnmId == null || currentChallenges.Any(a => string.Equals(a.Id, rnmId)))
                 {
                     rnmId = generator.GenerateRandomString();
                 }
