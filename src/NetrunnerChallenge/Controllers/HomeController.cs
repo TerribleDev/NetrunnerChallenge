@@ -3,13 +3,11 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using NetrunnerChallenge.Data;
 using NetrunnerChallenge.Extensions;
 using NetrunnerChallenge.Models;
 using NetrunnerDb.Net.Responses;
-using Newtonsoft.Json;
 
 namespace NetrunnerChallenge.Controllers
 {
@@ -53,15 +51,8 @@ namespace NetrunnerChallenge.Controllers
                     cards.Add(new NetrunnerApi().GetCard(a.Code).First());
                 });
                 var viewModel = new ChallengeResultViewModel {Cards = cards, Challenge = challege};
-                if (this.HttpContext.Request.IsAjaxRequest())
-                {
-                    return PartialView("Challenge",viewModel);
-                }
-                else
-                {
+               
                     return View("Challenge", viewModel);
-                }
-                
             }
         }
 

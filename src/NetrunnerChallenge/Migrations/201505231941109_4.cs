@@ -1,11 +1,7 @@
-using System.Linq;
-using NetrunnerChallenge.Data;
+using System.Data.Entity.Migrations;
 
 namespace NetrunnerChallenge.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class _4 : DbMigration
     {
         public override void Up()
