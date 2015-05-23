@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201505210212299_3.Designer.cs">
       <DependentUpon>201505210212299_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505231941109_4.cs" />
+    <Compile Include="Migrations\201505231941109_4.Designer.cs">
+      <DependentUpon>201505231941109_4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChallengeCard.cs" />
     <Compile Include="Models\Challenge.cs" />
@@ -207,6 +211,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\NetrunnerChallenge.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -258,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505210212299_3.resx">
       <DependentUpon>201505210212299_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505231941109_4.resx">
+      <DependentUpon>201505231941109_4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

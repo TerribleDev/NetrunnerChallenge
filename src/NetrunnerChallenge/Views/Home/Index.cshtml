@@ -4,12 +4,7 @@
     ViewBag.Title = "Home Page";
 }
 
-        @using (Ajax.BeginForm("Generate", "Home", new AjaxOptions()
-        {
-            HttpMethod = "Post",
-            OnBegin = "start",
-            UpdateTargetId = "innerBody"
-        }))
+        @using (Html.BeginForm("Generate", "Home", FormMethod.Post))
         {
             <div class="form-horizontal">
                 <h4>Generate your next Deckbuilder Challenge!</h4>
@@ -36,13 +31,14 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-        var start = function() {
-            $('#subBtn').attr("disabled", "disabled");
-            $('#loadingGif').show();
-        };
-
+      
         $(document).ready(function (){
             $('#loadingGif').hide();
+            $('#subBtn').submit(function () {
+                $('#loadingGif').show();
+                $('#subBtn').attr("disabled", "disabled");
+                
+            });
         });
     </script>
 }

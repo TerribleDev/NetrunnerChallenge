@@ -100,14 +100,27 @@ namespace NetrunnerChallenge.Controllers
                 var randgen = new Random();
                 for (int i = 0; i < cardAmount; i++)
                 {
+                   
                     var index = randgen.Next(length);
-                    var chal = new ChallengeCard {Code = cards[index].Code};
+                    var choice = cards[index];
+                    while ((challenge.CurrentInfluence +
+                            (string.Equals(choice.Faction, challenge.Faction.FactionName,
+                                StringComparison.CurrentCultureIgnoreCase)
+                                ? 0
+                                : choice.Factioncost)) > 15)
+                    {
+                        index = randgen.Next(length);
+                        choice = cards[index];
+                    }
+                    
+                    
+                    var chal = new ChallengeCard {Code = choice.Code, Faction = choice.Faction, FactionCosts = choice.Factioncost};
                     db.Entry(chal).State = EntityState.Added;
                     challenge.Cards.Add(chal);
                 }
                 db.ChallengeDb.Add(challenge);
                 db.SaveChanges();
-                return Challenge(challenge.Id);
+                return RedirectToAction("Challenge", "Home", new {id = challenge.Id});
             }
         }
     }

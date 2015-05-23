@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebGrease.Css.Extensions;
 
 namespace NetrunnerChallenge.Extensions
 {
@@ -17,6 +18,13 @@ namespace NetrunnerChallenge.Extensions
             var enumerable1 = enumerable as IList<T> ?? enumerable.ToList();
             var index = rand.Next(0, enumerable1.Count);
             return enumerable1.ElementAt(index);
+        }
+
+        public static int Combine(this IEnumerable<int> em)
+        {
+            var total = 0;
+            em.ForEach(a=> { total += a; });
+            return total;
         }
     }
 }

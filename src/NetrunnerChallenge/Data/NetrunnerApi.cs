@@ -10,13 +10,13 @@ namespace NetrunnerChallenge.Data
     {
         public IList<Cards> GetCards()
         {
-            return AppServices.Cache.Get("AllCards",DateTime.Today.AddDays(2), () => new Repository().GetCards());
+            return AppServices.Cache.Get("AllCards",DateTime.Today.AddDays(5), () => new Repository().GetCards());
 
         }
 
         public IList<OneCard> GetCard(string code)
         {
-            return AppServices.Cache.Get(code + "-Card", DateTime.Today.AddDays(2), () => new Repository().GetCard(code));
+            return AppServices.Cache.Get(code + "-Card", DateTime.MaxValue, () => new Repository().GetCard(code));
 
         }
     }

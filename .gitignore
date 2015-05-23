@@ -18,7 +18,7 @@ bld/
 .vs
 # Roslyn cache directories
 *.ide/
-
+**/PublishProfiles/**
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
