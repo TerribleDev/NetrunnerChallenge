@@ -24,6 +24,7 @@ namespace NetrunnerChallenge.Migrations
                 new Faction {Id = 7, FactionName = "Criminal", Side = "Runner"},
                 new Faction {Id = 8, FactionName = "Anarch", Side = "Runner"}
             });
+            context.SaveChanges();
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
